@@ -1,77 +1,64 @@
+Index.html
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Pagina Pessoal Pietro Miguel Davila Siqueira</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Perfil do Aluno - SENAI Videira@app.route("/calculadora", methods=["GET", "POST"])
+def calculadora():
+    resultado = None
+    if request.method == "POST":
+        try:
+            num1 = float(request.form["num1"])
+            num2 = float(request.form["num2"])
+            operacao = request.form["operacao"]
+
+            if operacao == "soma":
+                resultado = num1 + num2
+            elif operacao == "subtracao":
+                resultado = num1 - num2
+            elif operacao == "multiplicacao":
+                resultado = num1 * num2
+            elif operacao == "divisao":
+                if num2 != 0:
+                    resultado = num1 / num2
+                else:
+                    resultado = "Erro: Divisão por zero"
+        except:
+            resultado = "Erro nos dados fornecidos"
+
+    return render_template("calculadora.html", resultado=resultado)
+</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Pietro Miguel Davila Siqueira</h1>
-        <p>Aluno de Iniciação Profissional Videira - sc</p>
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre Mim</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="sobre">
 
-        <h2>Sobre Mim</h2>
+<header>
+    <h1>Pietro Miguel Davila Siqueira</h1>
+    <p>Aluno de Iniciação Profissional - Videira - SC</p>
+</header>
 
-        <img src="https://media.s-bol.com/BBB9ZZzEEo52/550x792.jpg" alt="">
+<nav>
+    <ul>
+        <li><a href="#sobre"></a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">pietro_m_siqueira@estudante.sesisenai.org.br</a></li>
+    </ul>
+</nav>
 
-        <p>eu gosto de jogar volei, sou estudamde, vou terminar a escola esse ano, tenho 14 anos e vou fazer 15 em agosto, eu gosto de assistir animme, serie e filme, eu amo assisti filmes de terror e minha serie favoria e the walking dead, series de terror são meus faviritos, minha banda favorita e Tokio Hotel, e eu gosto de guitarra.</p>
+<section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Descrição sobre vocês.</p>
+</section>
 
-    </section>
+<section id="projetos">
+    <h2>Projetos</h2>
+    <ul>
+        <li><a href="/calculadora">Calculadora</a></li>
+        <li><a href="/notas">Notas</a></li>
+    </ul>
+</section>
 
-
-
-    <section id="projetos">
-
-        <h2>Projetos</h2>
-
-        <ul>
-
-            <li>Projeto 1: <a href="tabela.html">Tabelas</a></li>
-
-            <li>Projeto 2: <a href="#">Descrição do Projeto 2</a></li>
-
-            <li>Projeto 3: <a href="#">Descrição do Projeto 3</a></li>
-
-              <li>Projeto 2: <a href="#">Descrição do Projeto 2</a></li>
-
-            <li>Projeto 3: <a href="#">Descrição do Projeto 3</a></li>
-
-                        <li>Projeto 3: <a href="#">Descrição do Projeto 3</a></li>
-
-              <li>Projeto 2: <a href="#">Descrição do Projeto 2</a></li>
-
-            <li>Projeto 3: <a href="#">Descrição do Projeto 3</a></li>
-
-        </ul>
-
-    </section>
-
-
-
-    <section id="contato">
-
-        <h2>Contato</h2>
-
-        <p>Entre em contato comigo via <a href="eloa_graff@estudante.sesisenai.org.br">e-eloa_graff@estudante.sesisenai.org.br</a>.</p>
-
-    </section>
-
-
-
-    <footer>
-
-        <p>&copy; @2025 - Eloa Vitoria gomes graff</p>
-
-    </footer>
-
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Email: pietro_m_siqueira@estudante.sesisenai.org.br</p>
+</section>
 </body>
-
 </html>
